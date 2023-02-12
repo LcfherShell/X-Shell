@@ -1,0 +1,2 @@
+# X-Shell
+PowerShell style

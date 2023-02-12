@@ -252,27 +252,9 @@ function Banner{
     }
     Write-Host
 }
-
-#$coba = ""
-#[regex]::match($coba, "#'(.*)'").Groups[1].Value
 Banner
 
-
-#$systemco = [SystemWInfox]::new("see")
-#Write-Host $systemco.CoresX | ConvertFrom-Json
-
-#foreach ($obj in $color.PSObject.Properties) {
-#    Write-Host $obj.Name
-#    Write-Host $obj.Value
-#}
-#Write-Host "Gretings" -foregroundColor $color[0].black
-#Write-Host "Greetings, $curUser!" -foregroundColor $foregroundColor
-#Write-Host "It is: $($time.ToUniversalTime().toString("r"))"
-#Write-Host "You're running PowerShell version: $psVersion" -foregroundColor Green
-#Write-Host "Your computer name is: $curComp" -foregroundColor Green
-#Write-Host "Happy scripting!" `n
 function Prompt {
-    #$host.UI.RawUI.WindowTitle = "PS ($curUser) > Dir: $((Get-Location).Path)"
     if ( Test-Path Variable:Global:RedactPreviousLine ) { 
         $cursor = New-Object System.Management.Automation.Host.Coordinates
         $cursor.X = $host.ui.rawui.CursorPosition.X
@@ -282,13 +264,7 @@ function Prompt {
         $host.ui.rawui.CursorPosition = $cursor
 
         Remove-Variable RedactPreviousLine -scope global
-    } # end if 
-    #Write-Host "`"`"=======[$($curUser)]===($($executionContext.SessionState.Path.CurrentLocation))"
-    #return "$";
-    
-    #Link
-    #https://go.microsoft.com/fwlink/?LinkID=225750
-    #ExternalHelp System.Management.Automation.dll-help.xml
+    }
     Write-Host "[" -NoNewline
     Write-Host "$($curUser.ToUpper())" -NoNewline -ForegroundColor Yellow
     Write-Host "]" -NoNewline -ForegroundColor White

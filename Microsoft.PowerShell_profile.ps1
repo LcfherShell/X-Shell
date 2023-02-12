@@ -241,11 +241,11 @@ function Banner{
     Write-Host
     if($Message -is [int]){
         if ($Message -eq 1) {
-            $classes.banner(6, "C:\Users\pc\Documents\WindowsPowerShell\spann.txt")
+            $classes.banner(6, "C:\Users\$($curUser)\Documents\WindowsPowerShell\spann.txt")
         }
     }elseif ($Message -is [string]){
          if ( $Message.ToLower() -eq "true" ) {
-            $classes.banner(6, "C:\Users\pc\Documents\WindowsPowerShell\spann.txt")
+            $classes.banner(6, "C:\Users\$($curUser)\Documents\WindowsPowerShell\spann.txt")
          }
     }
     Write-Host

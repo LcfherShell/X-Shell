@@ -238,14 +238,16 @@ class CustomUIX {
 function Banner{
     param($Message = 1)
     $classes = [CustomUIX]::new("mob")
+    $systemdrive = ((get-ciminstance -ClassName "CIM_OperatingSystem") | Select-Object SystemDrive) | ConvertTo-Json
+    $chostDrive = $systemdrive | ConvertFrom-Json
     Write-Host
     if($Message -is [int]){
         if ($Message -eq 1) {
-            $classes.banner(6, "C:\Users\$($curUser)\Documents\WindowsPowerShell\spann.txt")
+            $classes.banner(6, "$($chostDrive.SystemDrive)\Users\$($curUser)\Documents\WindowsPowerShell\spann.txt")
         }
     }elseif ($Message -is [string]){
          if ( $Message.ToLower() -eq "true" ) {
-            $classes.banner(6, "C:\Users\$($curUser)\Documents\WindowsPowerShell\spann.txt")
+            $classes.banner(6, "$($chostDrive.SystemDrive)\Users\$($curUser)\Documents\WindowsPowerShell\spann.txt")
          }
     }
     Write-Host
